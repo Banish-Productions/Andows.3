@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>andows</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="startmenu.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="startmenu.png" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+body {
+  background-repeat: repeat-y;
+  font-family: 'Roboto Mono', monospace, sans-serif;
+  font-size: 10px;
+  font-weight:bolder;
+  background-size: cover;
+  background-image: url('/dbg.jpg');
+}
+
+.themelook{
+  display: block;
+  width:80px;
+  margin-left: 40%;
+  margin-top: 10%;
+}
+
+.sidenav {
+  box-shadow: 2px 2px 20px #ffffff;
+  height: 70%;
+  width: 0%;
+  position: fixed;
+  z-index: 100000;
+  border-radius: 50px;
+  bottom: 0;
+  color: white;
+  left: 0;
+  background-color:rgba(98,0,0,0.608);
+  background-blend-mode: staturation;
+  background-image: url('/bg.jpg');
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 1px black,
+  -1px -1px 1px grey;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover {
+  color: #d5d5d7;
+  text-shadow: 1px 1px 1px black;
+}
+
+.sidenav .closebtn {
+  border-radius: 50px;
+  position: absolute;
+  bottom: 7px;
+  left: -41px;
+  box-shadow: 2px 2px 20px skyblue;
+  padding: 0px;
+  z-index: 1;
+  margin-left: 50px;
+}
+
+#settings{
+  position: fixed;
+  bottom: 0px;
+  height: 0%;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+#settings #title{
+  display: flex;
+  justify-content: center;
+}
+.sidenav p {
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    right: 0;
+    font-weight: bold;
+    top: 0px;
+    color: white;
+    font-size: 10px;
+    bottom: 25px;
+    height: 100%;
+    background: rgba(127,127,127,0.15);
+    rgba(0,255,247,0.15);
+    box-shadow: -1px -1px 1px #000000,
+    1px 1px 1px #000000;
+}
+
+
+
+.app{
+    width: 50px;
+    padding-top: 10px;
+}
+
+.app img{
+    background: linear-gradient(to bottom left, rgba(189,255,250,0.28) 0%, rgba(99,255,170,0.365) 100%);
+    margin: 20px;
+    border: 2px ;
+    border: outset 5px rgba(99,255,164,0.505);
+    padding:  2px;
+    margin-left: 5px;
+}
+.taskbarapp{
+    background: linear-gradient(to bottom left, rgba(189,255,250,0.28) 0%, rgba(99,255,170,0.365) 100%);
+    border: outset 5px rgba(99,255,249,0.599);
+    padding: 2px;
+    width: 100%;
+    margin-left: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px royalblue;
+}
+.sidenav{
+    background-image: url('/dbg.png');
+}
+.sidenav span {
+    animation: popup;
+    background-repeat: no-repeat;
+    position: absolute;
+    box-shadow: 4px 5px 2px skyblue;
+    padding: 20px 20px;
+    height: 20px;
+    width: 20px;
+    top: 100px;
+    z-index: 1000;
+    border: outset 5px #63fff5;
+    background-image: url('./startmenu.png');
+    background-size: contain;
+    text-align: center;
+    color: skyblue;
+    text-shadow: 1px 1px 1px royalblue;
+    justify-content: center;
+    margin: 10px;
+}
+@keyframes popup{
+    0%{
+        width: 20px;
+        height: 20px;
+    }
+    100%{
+        width: 50%;
+        height: 100px;
+    }
+}
+.link{
+    border-radius: 5%;
+    background: rgba(189,254,255,0.086);
+    position: absolute;
+    left: 0;
+    width: 80%;
+    padding-top: 10px;
+}
+.link a{
+    border-radius: 5%;
+    color: #ffffff;
+    border: outset 2px #87ceeb52;
+    box-shadow: 4px 4px 1px ##87ebeab2;
+    margin: 10px;
+    background: linear-gradient(to bottom left, rgba(255,255,255,0.371)0%, rgba(189,255,224,0.333) 100%);
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.taskbar{
+  position: fixed;
+  left: -1px;
+  bottom: -1px;
+  width: 100%;
+  padding: 10px;
+  z-index: 99;
+ background: linear-gradient(to bottom left, rgba(189,251,255,0.33) 0%, rgba(255,189,189,0.333) 100%);
+}
+#clock{
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+    bottom: 10px;
+}
+.option{
+    border-radius: 50pc;
+    background: linear-gradient(to bottom left,rgba(189,254,255,0.373) 0%, rgba(99,255,190,0.36) 100%);
+    border: outset 5px rgba(99,243,255,0.366);
+    padding: 2px;
+    float: right;
+    margin-left: 10px;
+    
+}
+#myDIV{
+  height: 0px;
+}
+#cover small{
+    font-size: 10px;
+}
+</style>
+</head>
+<body id="body">
+    <div>
+       <div id="settings">
+            <div>
+                <img src="settings.png" width="20px" /> Settings of andows
+            </div>
+            <hr />
+            <div class="themes">
+              
+              <p id="title">This is themes section</p>
+            
+          <img onclick="ddark()" class="themelook" src="defaultdark.jpg" alt="" />
+          <img onclick="g0()" class="themelook" src="l0.gif" alt="" />
+          <img onclick="g1()" class="themelook" src="g1.gif" alt="" />
+          <img onclick="l1()" class="themelook" src="l1.jpeg" alt="" />
+          <img onclick="l2()" class="themelook" src="l2.jpeg" alt="" />
+          <img onclick="l3()" class="themelook" src="l3.jpeg" alt="" />
+          <img onclick="l4()" class="themelook" src="l4.jpeg" alt="" />
+          <img onclick="l5()" class="themelook" src="l5.jpeg" alt="" />
+          <img onclick="l6()" class="themelook" src="l6.jpeg" alt="" />
+          <img onclick="d1()" class="themelook" src="d1.jpeg" alt="" />
+          <img onclick="d2()" class="themelook" src="d2.jpeg" alt="" />
+          <img onclick="d3()" class="themelook" src="d3.jpeg" alt="" />
+          <img onclick="d4()" class="themelook" src="d4.jpeg" alt="" />
+          <img onclick="d5()" class="themelook" src="d5.jpeg" alt="" />
+          <img onclick="d6()" class="themelook" src="d6.jpeg" alt="" />
+          <img onclick="d7()" class="themelook" src="d7.jpeg" alt="" />
+          <img onclick="lred()" class="themelook" src="lred.jpg" alt="" />
+          <img onclick="dlight()" class="themelook" src="Dlight.jpg" alt="" />
+          <img onclick="aqua()" class="themelook" src="aqua.jpg" alt="" />
+          <img onclick="dmaroon()" class="themelook" src="dmaroon.jpg" alt="" />
+          <img onclick="dviolet()" class="themelook" src="dviolet.jpg" alt="" />
+              
+            </div>
+       </div>
+<a style="border-radius:50%;border:none;box-shadow:2px 4px 2px black;" class="app" href="https://www.banish.in"><img src="bp.png" width="50px" alt="" /></a>
+</div>
+<div id="mySidenav" class="sidenav">
+   
+    <p style="color:white;position:absolute;top:0px;" id="goto">
+        <a href="#A">A</a>
+   
+        <a href="#B">B</a>
+     
+        <a href="#C">C</a>
+        
+       
+     
+        <a href="#E">E</a>
+     
+        <a href="#F">F</a>
+      
+        <a href="#G">G</a>
+        
+        <a href="#h">h</a>
+     
+        <a href="#I">I</a>
+        
+        <a href="#L">L</a>
+        
+        <a href="#N">N</a>
+        
+        <a href="#O">O</a>
+       
+        <a href="#R">R</a>
+        
+        <a href="#S">S</a>
+      
+        <a href="#T">T</a>
+       
+        <a href="#W">W</a>
+       
+        <a href="#Y">Y</a>
+    </p>
+  <a href="javascript:void(0)" class="closebtn" id="close" onclick="closeNav()"><img src="startmenu.png" width="50px" alt="" /></a>
+       <span id="cover" class="andows"> </span>
+   <div class="link">
+       <br />
+       <a id="A" href="#">A</a>
+       <a onclick="closeNav()" href="https://www.amazon.in/"><img src="amazon.png" style="color:black;" width="40px" alt="" />Amazon</a>
+       <a onclick="closeNav()" href="https://developer.amazon.com/dashboard" ><img src="./Amazondev.jpeg" style="color:black;"  width="40px" />AmazonDev</a>
+       <a id="B" href="#">B</a>
+  <a onclick="closeNav()" class="shortcut" href="https://www.banish.in"><img style="border-radius:50%;border:none;box-shadow:2px 2px 2px grey;" src="bp.png" width="50px" height="50px" alt="" />&ensp;Banish Productions&ensp;</a>
+  <a onclick="closeNav()" class="shortcut" href="https://www.bing.com/"><img src="bing.png" width="50px" alt="" />Bing</a>
+  <a id="C" href="#">C</a>
+  <a onclick="closeNav()" href="./indexi.html"><img src="calender.png" width="40px" /> calender</a>
+  <a onclick="closeNav()" href="https://edition.cnn.com/"><img src="cnn.png" width="40px" /> CNN</a>
+  <a onclick="closeNav()" href="https://www.chase.com/"><img src="chase.png" width="40px" alt="" />Chase</a>
+  <a onclick="closeNav()" href="https://contacts.google.com/"><img src="contacts.png" width="40px" /> Contacts</a>
+   
+  <a id="E" href="#">E</a>
+         <a onclick="closeNav()" href="https://www.ebay.com/"><img src="ebay.png" width="40px" />Ebay</a>
+        <a onclick="closeNav" href="https://banish-productions.github.io/EDU-Eating-MOBILE/"><img src="EE.png" style="border-radius:50%;border:none;box-shadow:2px 2px 2px grey;" width="40px" />Education Eating</a>
+         <a id="F" href="#">F</a>
+         <a onclick="closeNav()" href="https://www.facebook.com/"><img src="FB.png" width="40px" />Facebook</a>
+         <a onclick="closeNav" href="https://www.flipkart.com/">
+             <img src="flipkart.png" width="40px " heheight="40px" />Flipkart
+         </a>
+  <a onclick="closeNav()" href="https://surveyheart.com/form/6103e062632e7218b0af5e6a"><img src="feedbackhub.jpeg" width="40px" /> Feedback Hub</a>
+         <a id="G" href="#">G</a>
+         <a onclick="closeNav" href="https://www.google.com/"><img src="google.png" width="40px" />Google</a>
+         <a onclick="closeNav" href="https://www.games.co.uk/"><img src="Games.png" width="40px" />Games</a>
+         <a id="h" href="#">H</a>
+         <a onclick="closeNav" href="https://www.hotstar.com/in"><img src="hotstar.jpeg" width="40px" height="40px" />Hotstar</a>
+         <a id="I" href="#">I</a>
+         <a onclick="closeNav" href="https://www.instagram.com/"><img src="insta.png" width="40px" />Instagram</a>
+         <a onclick="closeNav" href="https://www.instructure.com/"><img src="Instructure.png" width="40px" />Instructure</a>
+         <a onclick="closeNav" href="https://www.intuit.com/"><img src="intuit.png" width="40px" />&ensp;Intuit</a>
+         <a id="L" href="#">L</a>
+         <a onclick="closeNav()" href="https://in.linkedin.com/"><img src="linkedin.jpeg" width="40px" />&ensp;Linkedin</a>
+         <a id="N" href="#">N</a>
+         <a onclick="closeNav" href="https://www.netflix.com/in/"><img  src="netflix.png" width="40px" /> Netflix</a>
+         <a onclick="closeNav()" href="https://anotepad.com/"><img src="notes.png" width="40px" height="40px" />Notes </a>
+         <a onclick="closeNav" href="https://www.nytimes.com/"><img src="nytimes.png" width="40px" /> Nytimes</a>
+         <a id="O" href="#">O</a>
+         <a onclick="closeNav" href="https://www.office.com/"><img src="office.png" width="40px" /> Office</a>
+         <a id="R" href="#">R</a>
+         <a onclick="closeNav" href="https://www.reddit.com/"><img src="reddit.png" width="40px" />Reddit</a>
+         <a id="S" href="#">S</a>
+         <a onclick="settings()" href="#"><img src="settings.png" width="40px" alt="" />Settings</a>
+         <a onclick="closeNav" href="https://www.shopify.in/"><img src="shopify.png" width="40px" />Shopify</a>
+         <a onclick="closeNav" href="https://www.banish.in/stopwatch/"><img src="stopwatch.png" width="40px" />Stopwatch</a>
+         <a id="T" href="#">T</a>
+         <a onclick="closeNav" href="https://web.telegram.org/#/loginhttps://www.shopify.in/"><img src="telegram.png" width="40px" /> Telegram</a>
+         <a onclick="closeNav" href="https://m.twitch.tv/"><img src="twitch.png" width="40x" />Twitch</a>
+         <a id="W" href="#">W</a>
+         <a onclick="closeNav" href="https://en.m.wikipedia.org/wiki/Main_Page"><img src="wikipedia.png" width="40px" />Wikipedia</a>
+         <a id="Y" href="#">Y</a>
+         <a onclick="closeNav" href="https://in.yahoo.com/"><img src="yahoo.png" width="40px" /> Yahoo</a>
+         <a onclick="closeNav" href="https://www.youtube.com/"><img src="yt.png" width="40px" />&ensp; Youtube</a>
+         <div>
+             <br />
+             <br />
+         </div>
+         <br />
+         <br />
+    </div>
+</div>
+<div class="taskbar">
+    <span 
+    style=
+  "
+  border-radius:50px;
+  border: none;
+  outline: none;
+  box-shadow:2px 2px 2px royalblue;
+  color: white;
+  cursor: pointer;
+  padding-right:2px;
+  border-radius: 4px;
+  cursor:pointer;
+  " 
+  
+    onclick="openNav()"
+    ><img src="startmenu.png" width="50px" height="50px" alt="" /></span>
+  
+<a class="taskbarapp" href="https://www.banish.in"><img src="bp.png" width="50px" alt="" /></a>
+<button class="option" id="clock" >11:41:15</button>
+</div>
+<script>
+
+function g0() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "#0100552a";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(l0.gif)";
+}
+function g1() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "#0100552a";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(g1.gif)";
+}
+function l1() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,116,17,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(l1.jpeg)";
+}
+function l2() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,118,171,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(l2.jpeg)";
+}
+function l3() {
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(154,0,190,0.608)";
+  alert('bg applied');
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(l3.jpeg)";
+}
+function l4() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(109,109,109,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(l4.jpeg)";
+}
+function l5() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,162,251,0.419)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(l5.jpeg)";
+}
+function l6() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,182,134,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(l6.jpeg)";
+}
+function d1() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,90,137,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(d1.jpeg)";
+}
+function d2() {
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,90,137,0.608)";
+  alert('bg applied');
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(d2.jpeg)";
+}
+function d3() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,90,137,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(d3.jpeg)";
+}
+function d4() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,90,137,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(d4.jpeg)";
+}
+function d5() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,90,137,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(d5.jpeg)";
+}
+function d6() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,90,137,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(d6.jpeg)";
+}
+function d7() {
+  alert('bg applied');
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(135,0,137,0.608)";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  document.getElementById("body").style.backgroundImage = "url(d7.jpeg)";
+}
+
+function settings() {
+  document.getElementById("settings").style.height = "50%";
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("close").style.position = "absolute";
+   document.getElementById("goto").style.position = "absolute";
+   document.getElementById("cover").style.position = "absolute";
+}
+
+function ddark() {
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  alert("default dark theme applied");
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(109,109,109,0.608)";
+}
+function lred() {
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  alert("default light red theme applied");
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(255,17,17,0.3)";
+}
+function aqua() {
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  alert("aqua dark theme applied");
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(0,201,202,0.513)";
+  document.getElementsByClassName("sidenav").style.transition = "5s";
+}
+function dviolet() {
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  alert("violet dark theme applied");
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(66,0,240,0.608)";
+}
+function dmaroon() {
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  alert("default maroon theme applied");
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(135,0,0,0.608)";
+}
+
+function dlight() {
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("settings").style.height = "0%";
+  alert("default light theme applied");
+  document.getElementsByClassName("sidenav")[0].style.backgroundColor = "rgba(236,236,236,0.608)";
+  document.getElementsByClassName("sidenav").style.color = "black";
+}
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("close").style.position = "fixed";
+   document.getElementById("goto").style.position = "fixed";
+   document.getElementById("goto").style.right = "0%"
+   document.getElementById("goto").style.top = "-10px"
+   document.getElementById("goto").style.height = "100vh"
+   document.getElementById("goto").style.width = "20%"
+   document.getElementById("cover").style.position = "fixed" ;
+   document.getElementById("cover").style.left = "22%" ;
+   document.getElementById("myDIV").style.display = "none" ;
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("close").style.position = "absolute";
+   document.getElementById("goto").style.position = "absolute";
+   document.getElementById("cover").style.position = "absolute";
+}
+
+setInterval(showTime, 1000); 
+
+        function showTime() { 
+
+            let time = new Date(); 
+
+            let hour = time.getHours(); 
+
+            let min = time.getMinutes(); 
+
+            let sec = time.getSeconds(); 
+
+            am_pm = "AM"; 
+
+  
+
+            if (hour > 12) { 
+
+                hour -= 12; 
+
+                am_pm = "PM"; 
+
+            } 
+
+            if (hour == 0) { 
+
+                hr = 12; 
+
+                am_pm = "AM"; 
+
+            } 
+
+  
+
+            hour = hour < 10 ? "0" + hour : hour; 
+
+            min = min < 10 ? "0" + min : min; 
+
+            sec = sec < 10 ? "0" + sec : sec; 
+
+  
+
+            let currentTime = hour + ":"  
+
+                + min + ":" + sec + am_pm; 
+
+  
+
+            document.getElementById("clock") 
+
+                .innerHTML = currentTime; 
+
+        } 
+
+  
+
+
+</script>
+</body>
+</html>
